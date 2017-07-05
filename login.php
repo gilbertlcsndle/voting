@@ -30,10 +30,9 @@
   }   
 }
 body {
-  background: url('logo/eto.jpg');
+  background: url('img/school-front.jpg');
   background-size:100%;
-   background-repeat:no-repeat;
-   padding-top: 90px;
+  padding-top: 90px;
 }
 .style1 {font-size: 20px}
 .style2 {font-size: 18px}
