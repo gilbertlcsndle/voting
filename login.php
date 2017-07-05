@@ -11,146 +11,110 @@
   <link href='css/custom.css' rel='stylesheet'>
   <link rel="icon" href="logo/sjnhs.png">
 <style>
-/*adjust the size in different devices*/
-/*xs*/
-.login-form {
-  width: 60%;
-  margin-top: 10%;
-}
-/*sm*/
-@media (min-width: 768px) {
-  .login-form {
-    width: 50%;
-  }   
-}
-/*md*/
-@media (min-width: 992px) {
-  .login-form {
-    width: 30%;
-  }   
-}
 body {
-  background: url('logo/eto.jpg');
+  background: url('img/school-front.jpg');
   background-size:100%;
-   background-repeat:no-repeat;
-   padding-top: 90px;
 }
-.style1 {font-size: 20px}
-.style2 {font-size: 18px}
-.style3 {font-family: 'Glyphicons Halflings'}
+.login-form {
+  text-align: center;
+  margin-top: 200px;
+  width: 30%;
+}
 </style>
 </head>
 <body>
-		<img src="" alt="" width="1368" class="img-responsive center-block">
-		<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a href="#" class="navbar-brand">Automated Voting System for San Juan National High School</a>			
-		  </div>
-		<ul class="nav navbar-nav navbar-right">
-		<table width="431" border="0.1" cellspacing="1">
-          <tr>
-		<th width="105" scope="col"><div align="center" class="style19"><a href="#" class=" style3 navbar-brand style2"></a></div></th> 
-		   	   <th width="105" scope="col"><div align="center" class="style19"><a href="login.php" class="glyphicon-home style3 style2">Home</a></div></th>
-		    <th width="175" scope="col"><div align="center" class="style19"><a href="developers.php" class="glyphicon-user style2 style3">Developer</a></div></th>
-			 <th width="141" scope="col"><div align="center" class="style19"><a href="help.php" class="glyphicon-question-sign style2 style3">Help</a></div></th>
-          </tr>
-        </table>
-</ul>
-</nav>
 <?php require_once 'functions/create_admin.php'; ?>
-<div class="col-lg-4 col-lg-offset-8">
-  <div class='panel panel-success'>
-    <div class='panel-heading'>
-      <div align="left"><b class='panel-title'>
-        <span class="style1">Login</span><span class="style1"></span></b> </div>
-    </div>
-    <div class='panel-body'>
-      <?php
-      if (isset($_POST['login'])) {
-          $login = $_POST['login'];
-          require_once 'functions/crud.php';
-          require_once 'functions/encrypt-decrypt.php';
-          $crud = new crud();
-
-          $user_account = $crud->join(
-              'profiles.id_no,
-               profiles.fname,
-               profiles.lname, 
-               accounts.is_active, 
-               accounts.user_level,
-               accounts.is_voted,
-               accounts.password',
-              array('accounts', 'profiles'),
-              array('accounts.id_no'),
-              array('profiles.id_no'),
-              array('profiles.id_no'),
-              array("'$login[id_no]'")
-          );
-
-          if (
-              $user_account and
-              decrypt_pass($login['password'], $user_account[0]['password'])
-          ) {
-              if ($user_account[0]['is_active']) {
-                  session_start();
-                  if ($user_account[0]['user_level'] == 'Administrator') {
-                      $_SESSION = $user_account[0];
-
-                      header('location:index.php');
-                  } elseif ($user_account[0]['user_level'] == 'Student') {
-
-                      if ($user_account[0]['is_voted']) {
-                          echo "<div id='alert-info'>
-                              This account was already voted.
-                              </div>";
-                      } else {
-                          $_SESSION = $user_account[0];
-                          header('location:vote.php');
-                      }
-
-                  } else {
-                      session_destroy();
-                      echo "<div id='alert-danger'>
-                          This account is invalid.</div>";
-                  }
-
-              } else {
-                  echo "<div id='alert-warning'>
-                      Your account is not yet activated.<br>
-                      Please refer to the administrator to activate it.
-                      </div>";
-              }
-          } else {
-              echo "<div id='alert-warning'>Invalid ID or password</div>";
-          }
-      }
-      ?>
-      <form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
-        <div class='form-group'>
-          <input type='text' name='login[id_no]' placeholder='User id'
-            class='form-control' 
-            value='<?php 
-                if (isset($_POST['login'])) { echo $_POST['login']['id_no']; } 
-            ?>' maxlength='255' required>
-        </div>
-        <div class='form-group'>
-          <div class='input-group'>
-            <input type='password' name='login[password]' placeholder='Password' 
-              class='form-control' required>
-            <span class='input-group-btn' id='show-pass'>
-              <button type='button' class='btn btn-default'>
-                <span class='glyphicon glyphicon-eye-open'></span>
-              </button>
-            </span>
+  <div class="login-form center-block">
+    <div class='panel panel-success'>
+      <div class='panel-heading'>
+        <b class='panel-title'>Login to your account</b>
+      </div>
+      <div class='panel-body'>
+        <?php
+        if (isset($_POST['login'])) {
+            $login = $_POST['login'];
+            require_once 'functions/crud.php';
+            require_once 'functions/encrypt-decrypt.php';
+            $crud = new crud();
+    
+            $user_account = $crud->join(
+                'profiles.id_no,
+                 profiles.fname,
+                 profiles.lname, 
+                 accounts.is_active, 
+                 accounts.user_level,
+                 accounts.is_voted,
+                 accounts.password',
+                array('accounts', 'profiles'),
+                array('accounts.id_no'),
+                array('profiles.id_no'),
+                array('profiles.id_no'),
+                array("'$login[id_no]'")
+            );
+    
+            if (
+                $user_account and
+                decrypt_pass($login['password'], $user_account[0]['password'])
+            ) {
+                if ($user_account[0]['is_active']) {
+                    session_start();
+                    if ($user_account[0]['user_level'] == 'Administrator') {
+                        $_SESSION = $user_account[0];
+    
+                        header('location:index.php');
+                    } elseif ($user_account[0]['user_level'] == 'Student') {
+    
+                        if ($user_account[0]['is_voted']) {
+                            echo "<div id='alert-info'>
+                                This account was already voted.
+                                </div>";
+                        } else {
+                            $_SESSION = $user_account[0];
+                            header('location:vote.php');
+                        }
+    
+                    } else {
+                        session_destroy();
+                        echo "<div id='alert-danger'>
+                            This account is invalid.</div>";
+                    }
+    
+                } else {
+                    echo "<div id='alert-warning'>
+                        Your account is not yet activated.<br>
+                        Please refer to the administrator to activate it.
+                        </div>";
+                }
+            } else {
+                echo "<div id='alert-warning'>Invalid ID or password</div>";
+            }
+        }
+        ?>
+        <form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
+          <div class='form-group'>
+            <input type='text' name='login[id_no]' placeholder='User id'
+              class='form-control' 
+              value='<?php 
+                  if (isset($_POST['login'])) { echo $_POST['login']['id_no']; } 
+              ?>' maxlength='255' required>
           </div>
-        </div>
-        <button type='submit' class='btn btn-success'>Log in</button><br>
-        Not registered yet? <a href='register.php'>Register here!</a>
-      </form>
-    </div>  
+          <div class='form-group'>
+            <div class='input-group'>
+              <input type='password' name='login[password]' placeholder='Password' 
+                class='form-control' required>
+              <span class='input-group-btn' id='show-pass'>
+                <button type='button' class='btn btn-default'>
+                  <span class='glyphicon glyphicon-eye-open'></span>
+                </button>
+              </span>
+            </div>
+          </div>
+          <button type='submit' class='btn btn-success btn-block'>Log in</button><br>
+          Don't have an account? <a href='register.php'>Register here!</a>
+        </form>
+      </div>  
+    </div>
   </div>
-</div>
 <script src='js/jquery-3.1.1.min.js'></script>
 <script src='js/alert-bootstrap.js'></script>
 <script src='js/show-pass.js'></script>

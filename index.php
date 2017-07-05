@@ -40,15 +40,6 @@ if (isset($_POST['reset_result'])) {
       </div>
     </div>
     <div class='row'>
-      <div id='collumn-navigation' class='form-inline hidden-xs'>
-        <label for='collumn'>Collumns:</label>
-          <select name='collumn' class='form-control' id='collumn'>
-            <option value='4'>3</option>
-            <option value='6'>2</option>
-            <option value='12'>1</option>
-          </select>
-        </label>
-      </div>	  
       <div id='election-result'>
       <?php
       include 'functions/crud.php';
@@ -97,7 +88,7 @@ if (isset($_POST['reset_result'])) {
           <div class='col-sm-4' id='candidate-collumn'>
             <div class='panel panel-success'>
               <div class='panel-heading'>
-               <h5 style='color: #fff;'><?php echo $category['name']; ?></h5>
+               <h6 style='color: #fff;'><?php echo $category['name']; ?></h6>
               </div>
               <div class='panel-body'>
               <?php for ($y=0; $y < count($candidates); $y++): ?>
@@ -116,14 +107,12 @@ if (isset($_POST['reset_result'])) {
                 }
                 ?>
                 <img src='candidates/<?php echo $candidate['photo']; ?>' 
-                  width='150'>
-               <h7> 
+                  width='90'> 
                   <strong>
                   <?php 
                   echo "$candidate[fname] $candidate[mname] $candidate[lname]"; 
                   ?>
                   </strong>                  
-                  </h7>
 				<h5>
 				  <?php 
                 if (empty($candidate['votes'])) {
@@ -163,7 +152,6 @@ if (isset($_POST['reset_result'])) {
   <script src='js/jquery-3.1.1.min.js'></script>
   <script src='js/bootstrap.min.js'></script>
   <script src='js/alert-bootstrap.js'></script>
-  <script src='js/clear-collumn-float.js'></script>
   <script>
   // update election result if has changes
   setInterval(function(){    

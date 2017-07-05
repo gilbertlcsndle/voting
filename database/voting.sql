@@ -1,13 +1,15 @@
-
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- phpMyAdmin SQL Dump
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2017 at 03:20 PM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: Jul 05, 2017 at 01:29 PM
+-- Server version: 10.1.24-MariaDB
+-- PHP Version: 7.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -30,8 +32,8 @@ CREATE TABLE `accounts` (
   `id_no` varchar(255) NOT NULL,
   `password` char(60) NOT NULL,
   `user_level` varchar(13) NOT NULL,
-  `is_active` bit(1) NOT NULL,
-  `is_voted` bit(1) NOT NULL
+  `is_active` int(1) NOT NULL,
+  `is_voted` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -39,28 +41,28 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id_no`, `password`, `user_level`, `is_active`, `is_voted`) VALUES
-('14000', '$2gCXDSrN2DHo', 'Student', b'1', b'0'),
-('14124', '$23fjJ7riUMLg', 'Student', b'1', b'0'),
-('2323233432', '$2V3qOC70ekLE', 'Student', b'1', b'0'),
-('42', '$252R4mH4yfRU', 'Administrator', b'1', b'0'),
-('43', '$252R4mH4yfRU', 'Student', b'0', b'0'),
-('432244', '$252R4mH4yfRU', 'Student', b'0', b'0'),
-('4324', '$252R4mH4yfRU', 'Student', b'0', b'0'),
-('43242', '$2V3qOC70ekLE', 'Student', b'0', b'0'),
-('adf', '$252R4mH4yfRU', 'Student', b'0', b'0'),
-('admin', '$2gCXDSrN2DHo', 'Administrator', b'0', b'0'),
-('adsf', '$2V3qOC70ekLE', 'Student', b'0', b'0'),
-('adsfff', '$252R4mH4yfRU', 'Student', b'0', b'0'),
-('afdsafdsfdsa', '$252R4mH4yfRU', 'Student', b'0', b'0'),
-('dafdf', '$2gCXDSrN2DHo', 'Student', b'0', b'0'),
-('fddfdfasfdas', '$252R4mH4yfRU', 'Student', b'0', b'0'),
-('ffdfsddfsdfsdf', '$252R4mH4yfRU', 'Student', b'0', b'0'),
-('fsddsffsd', '$252R4mH4yfRU', 'Student', b'0', b'0'),
-('java', '$23fjJ7riUMLg', 'Student', b'0', b'0'),
-('jer', '$23fjJ7riUMLg', 'Student', b'0', b'0'),
-('sdaf', '$252R4mH4yfRU', 'Student', b'0', b'0'),
-('sdfaafsddfasafds', '$252R4mH4yfRU', 'Student', b'0', b'0'),
-('voter', '$2ejLZltgUIFI', 'Student', b'1', b'0');
+('14000', '$2gCXDSrN2DHo', 'Student', 0, 0),
+('14124', '$23fjJ7riUMLg', 'Student', 1, 0),
+('2323233432', '$2V3qOC70ekLE', 'Student', 1, 0),
+('42', '*0', 'Administrator', 1, 0),
+('43', '$252R4mH4yfRU', 'Student', 0, 0),
+('432244', '$252R4mH4yfRU', 'Student', 0, 0),
+('4324', '$252R4mH4yfRU', 'Student', 0, 0),
+('43242', '$2V3qOC70ekLE', 'Student', 0, 0),
+('adf', '$252R4mH4yfRU', 'Student', 0, 0),
+('admin', '$2gCXDSrN2DHo', 'Administrator', 0, 0),
+('adsf', '$2V3qOC70ekLE', 'Student', 0, 0),
+('adsfff', '$252R4mH4yfRU', 'Student', 0, 0),
+('afdsafdsfdsa', '$252R4mH4yfRU', 'Student', 0, 0),
+('dafdf', '$2gCXDSrN2DHo', 'Student', 0, 0),
+('fddfdfasfdas', '$252R4mH4yfRU', 'Student', 0, 0),
+('ffdfsddfsdfsdf', '$252R4mH4yfRU', 'Student', 0, 0),
+('fsddsffsd', '$252R4mH4yfRU', 'Student', 0, 0),
+('java', '$23fjJ7riUMLg', 'Student', 0, 0),
+('jer', '$23fjJ7riUMLg', 'Student', 0, 0),
+('sdaf', '$252R4mH4yfRU', 'Student', 0, 0),
+('sdfaafsddfasafds', '$252R4mH4yfRU', 'Student', 0, 0),
+('voter', '$2ejLZltgUIFI', 'Student', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -83,11 +85,11 @@ CREATE TABLE `candidates` (
 --
 
 INSERT INTO `candidates` (`pk`, `photo`, `fname`, `mname`, `lname`, `category`, `votes`) VALUES
-(1, 'default.png', 'fad', 'adf', 'adf', 'President', 3),
-(2, 'default.png', 'daf', 'adf', 'adf', 'Secretary', 0),
-(3, 'default.png', 'dfa', 'adfs', 'adf', 'Treasurer', 0),
-(4, 'default.png', 'adf', 'adfsadf', 'daf', 'Treasurer', 0),
-(5, 'default.png', 'dafadf', 'adf', 'adf', 'Vice president', 0);
+(1, 'default.png', 'Dahlia', 'Jaskolski', 'Little', 'President', 0),
+(2, 'default.png', 'Trace ', 'Rippin ', 'Harber', 'Secretary', 0),
+(3, 'default.png', 'Dangelo ', 'Wolff ', 'Waters', 'Treasurer', 0),
+(4, 'default.png', 'Elody ', 'Bosco ', 'Block', 'Treasurer', 0),
+(5, 'default.png', 'Karolann ', 'Koepp ', 'Hermann', 'Vice president', 0);
 
 -- --------------------------------------------------------
 
@@ -130,16 +132,16 @@ CREATE TABLE `profiles` (
 --
 
 INSERT INTO `profiles` (`id_no`, `fname`, `mname`, `lname`, `gender`) VALUES
-('14000', 'dafskjllkj', 'lkjlkj', 'kj', 'F'),
-('14124', 'fdajkhhj', 'hjjkj', 'hk', 'F'),
-('2323233432', 'ddsf', 'fdadsfa', 'dafadfs', 'F'),
-('42', 'dfkjafdsjklkjl', 'lkjlkjlkj', 'dffdsa', 'F'),
-('43', 'daads', 'sasda', 'dasasd', 'F'),
-('432244', 'fdfdsaasd', 'kjjhkjk', 'hjkjhk', 'F'),
+('14000', 'Dahlia ', 'Jaskolski ', 'Little', 'F'),
+('14124', 'Trace ', 'Rippin ', 'Harber', 'F'),
+('2323233432', 'Dangelo ', 'Wolff ', 'Waters', 'F'),
+('42', 'Jane', 'Will', 'Doe', 'F'),
+('43', 'Elody ', 'Bosco ', 'Block', 'F'),
+('432244', 'Karolann ', 'Koepp ', 'Hermann', 'F'),
 ('4324', 'fdsadafskj', 'lkjkj', 'ljklkjk', 'F'),
 ('43242', 'sdffdskl', 'kjkjlkj', 'kj', 'F'),
 ('adf', 'dfsasfd', 'jklk', 'kjkjl', 'F'),
-('admin', 'Gilbert', 'Arellano', 'Lacas', 'M'),
+('admin', 'John', 'Will', 'Doe', 'M'),
 ('adsf', 'dfaadfsj', 'klkj', 'lkjlkj', 'F'),
 ('adsfff', 'ddfasafsd', 'adfs', 'adfs', 'F'),
 ('afdsafdsfdsa', 'fdsafdsjkkj', 'ljlk', 'lkjlkjlk', 'F'),
@@ -171,10 +173,10 @@ CREATE TABLE `students` (
 
 INSERT INTO `students` (`id_no`, `grade_level`, `section`) VALUES
 ('14000', 'Grade 7', 'Mapayapa'),
-('14124', 'akjj', 'jhkhjk'),
+('14124', 'Grade 7', 'Mapayapa'),
 ('2323233432', 'Grade 10', 'Magiting'),
 ('43', 'Grade 8', 'Mapayapa'),
-('432244', 'dasfdfsa', 'adfdfs'),
+('432244', 'Grade 8', 'Maagap'),
 ('4324', 'fdas', 'adf'),
 ('43242', '2', '12'),
 ('adf', 'sdfa', 'afds'),
@@ -257,6 +259,7 @@ ALTER TABLE `candidates`
 --
 ALTER TABLE `students`
   ADD CONSTRAINT `students_id_no_fk` FOREIGN KEY (`id_no`) REFERENCES `profiles` (`id_no`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -124,7 +124,7 @@
           <thead>
             <tr>
               <th>Name</th>
-              <th>Candidates</th>
+              <th>Number of Winner(s)</th>
               <th>Action</th>
             </tr>
           </thead>

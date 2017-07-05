@@ -68,7 +68,7 @@ if (isset($_POST['update'])) {
         $update_account = $crud->update($account, 'accounts', 'id_no', "'$_GET[id_no]'");
         
         if ($update_profile and $update_student and $update_account) {
-            // header("location:$_GET[last_page]");
+            header("location:$_GET[last_page]");
         } else {
             echo "<div id='alert-danger'>Please check your internet connection
                 and try again.</div>";
