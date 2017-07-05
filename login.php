@@ -41,23 +41,6 @@ body {
 </style>
 </head>
 <body>
-		<img src="" alt="" width="1368" class="img-responsive center-block">
-		<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a href="#" class="navbar-brand">Automated Voting System for San Juan National High School</a>			
-		  </div>
-		<ul class="nav navbar-nav navbar-right">
-		<table width="431" border="0.1" cellspacing="1">
-          <tr>
-		<th width="105" scope="col"><div align="center" class="style19"><a href="#" class=" style3 navbar-brand style2"></a></div></th> 
-		   	   <th width="105" scope="col"><div align="center" class="style19"><a href="login.php" class="glyphicon-home style3 style2">Home</a></div></th>
-		    <th width="175" scope="col"><div align="center" class="style19"><a href="developers.php" class="glyphicon-user style2 style3">Developer</a></div></th>
-			 <th width="141" scope="col"><div align="center" class="style19"><a href="help.php" class="glyphicon-question-sign style2 style3">Help</a></div></th>
-          </tr>
-        </table>
-</ul>
-</nav>
 <?php require_once 'functions/create_admin.php'; ?>
 <div class="col-lg-4 col-lg-offset-8">
   <div class='panel panel-success'>
