@@ -16,7 +16,7 @@
 <table width="826" border="0.1">
   <tr>
     <td width="40">&nbsp;</td>
-    <td width="732"><div align="center"><strong><img width="105" height="105" src="print_clip_image002.jpg" align="center" hspace="12" alt="Description: C:\Users\pc\Desktop\logo\sjnhs.png"></strong></div></td>
+    <td width="732"><div align="center"><strong><img width="105" height="105" src="logo/sjnhs.png" align="center" hspace="12" alt="Description: C:\Users\pc\Desktop\logo\sjnhs.png"></strong></div></td>
     <td width="40">&nbsp;</td>
   </tr>
   <tr>
