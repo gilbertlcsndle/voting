@@ -1,0 +1,76 @@
+.alert-link {
+  background: none;
+  border: none;
+  outline: none;
+}
+.alert-link:hover {
+  text-decoration: underline;
+}
+
+#collumn-navigation {
+  width: 20%; 
+  padding-left: 15px; 
+  padding-right: 15px;
+  margin-bottom: 15px;
+}
+form {
+  display: inline;
+}
+[hidden] {
+  display: none;
+}
+#label-candidate {
+  margin-bottom: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.pagination>.disabled>span, 
+.pagination>.disabled>span:hover, 
+.pagination>.disabled>span:focus, 
+.pagination>.disabled>a, 
+.pagination>.disabled>a:hover, 
+.pagination>.disabled>a:focus {
+  cursor: default;
+}
+.form-control[disabled], 
+fieldset[disabled] .form-control {
+  cursor: default;
+}
+.btn.disabled {
+  cursor: default;
+}
+.btn.disabled:hover {
+  margin-top: initial; 
+  border-bottom-width: initial; 
+}
+img {
+  vertical-align: bottom;
+}
+.alert .glyphicon {
+  float: left;
+}
+[id*='alert-'] {
+  display: none;
+}
+.alert {
+  display: block !important;
+  text-align: center;
+}
+.alert-dismissible .close{
+  color: #fff;
+}
+.clear {
+  clear: both;
+}
+.clear-left {
+  clear: left;
+}
+.clear-right {
+  clear: right;
+}
+#change-password {
+  width: 50%;
+}
+[class*='col-'].no-gutters {
+  padding: initial;
+}
