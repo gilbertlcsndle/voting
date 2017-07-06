@@ -9,6 +9,7 @@
 
   <link href='css/bootstrap.min.css' rel='stylesheet'>
   <link href='css/custom.css' rel='stylesheet'>
+  <link rel="icon" href="logo/sjnhs.png">
 </head>
 <body>
 <?php session_start(); ?>
